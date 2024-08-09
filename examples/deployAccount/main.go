@@ -3,13 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
-	"math"
-	"strconv"
-
 	"github.com/NethermindEth/juno/core/felt"
 	"github.com/NethermindEth/starknet.go/account"
 	"github.com/NethermindEth/starknet.go/rpc"
 	"github.com/NethermindEth/starknet.go/utils"
+	"math"
+	"strconv"
 
 	setup "github.com/NethermindEth/starknet.go/examples/internal"
 )
@@ -77,7 +76,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("PrecomputedAddress:", precomputedAddress)
+	fmt.Println("PrecomputedAddress:", utils.NormalizeAddress(precomputedAddress))
 
 	// Sign the transaction
 	err = accnt.SignDeployAccountTransaction(context.Background(), &tx.DeployAccountTxn, precomputedAddress)
